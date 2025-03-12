@@ -61,7 +61,7 @@ export const TableAttendance = () => {
                 </thead>
                 <tbody>
                     {
-                        earning.map((item) => (
+                        attendance.map((item) => (
                             <tr key={item.attendance_id}>
                                 <td>{item.event_id}</td>
                                 <td>{item.name}</td>

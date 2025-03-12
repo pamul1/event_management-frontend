@@ -40,7 +40,7 @@ export const LogInForm = () => {
             const token = result.token
             
             window.localStorage.setItem("event-credential", token)
-            window.location.href="/attendanceScreen"
+            window.location.href="/attendance"
             
         }else{
             console.log("Invalid Credential")

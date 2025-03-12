@@ -23,7 +23,7 @@ export const RegisterForm = () => {
 
         event.preventDefault()
 
-        const endPoint = 'auth/register'
+        const endPoint = 'user/register'
         const newUrl = `${baseUrl}${endPoint}`
 
         const response = await fetch(newUrl, {

@@ -24,7 +24,7 @@ export const LogInForm = () => {
 
         event.preventDefault()
 
-        const endPoint = 'auth/logIn'
+        const endPoint = 'user/logIn'
         const newUrl = `${baseUrl}${endPoint}`
 
         const response = await fetch(newUrl, {

@@ -75,7 +75,7 @@ export const RegisterForm = () => {
 
                             <div className='row mt-3'>
                                 <div className='col'>
-                                    <button className='btn btn-primary w-100'>Create</button>
+                                    <button className='btn btn-primary w-100'>Register</button>
                                 </div>
                                 <div className='col'>
                                     <button type="button" className='btn btn-primary w-100'>Log In</button>

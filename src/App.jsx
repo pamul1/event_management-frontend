@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { FormRegister } from './components/FormRegister'
-import { FormLogIn } from './components/FormLogIn'
+import { LogIn } from './screenComponents/LogIn'
 import { NotFound } from './components/NotFound'
+import { Register } from './screenComponents/Register'
 
 export const App = () => {
 
@@ -10,10 +10,10 @@ export const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<LogIn/>}/>
-          <Route path='/register' element={<FormRegister />} />
-          <Route path='/login' element={<FormLogIn/>}/>
-          <Route path='/' element={<NotFound/>}/>
+          <Route path='/' element={<LogIn />} />
+          <Route path='/register' element={ <Register/>}  />
+          <Route path='*' element={<NotFound />} />
+
         </Routes>
       </BrowserRouter>
     </>

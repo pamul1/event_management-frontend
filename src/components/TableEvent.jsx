@@ -8,9 +8,9 @@ export const TableEvent = () => {
     const [event, setEvent] = useState([])
 
     const getEvent = async () => {
-
+        const email = localStorage.getItem("event-email")
         const token = localStorage.getItem("event-credential")
-        const url = `${baseUrl}${endPoint}`
+        const url = `${baseUrl}${endPoint}/${email}`
         const result = await fetch(url)
 
         if (result.ok) {
@@ -43,32 +43,33 @@ export const TableEvent = () => {
 
     return (
         <>
-
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Date</th>
-                        <th>Location</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        event.map((item) => (
-                            <tr key={item.event_id}>
-                                <td>{item.title}</td>
-                                <td>{item.date}</td>
-                                <td>{item.location}</td>
-                                <td>{item.email}</td>
-                                <td> <button className='btn btn-danger' onClick={() => {
-                                    handleDelete(item.event_id)
-                                }} >Delete</button></td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+            <div className='table-responsive'>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            event.map((item) => (
+                                <tr key={item.id}>
+                                    <td>{item.title}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.location}</td>
+                                    <td>{item.email}</td>
+                                    <td> <button className='btn btn-danger' onClick={() => {
+                                        handleDelete(item.event_id)
+                                    }} >Delete</button></td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }

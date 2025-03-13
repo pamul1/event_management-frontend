@@ -38,8 +38,9 @@ export const LogInForm = () => {
         if(response.ok){
             const result = await response.json()
             const token = result.token
-            
+            const email = formData.email
             window.localStorage.setItem("event-credential", token)
+            window.localStorage.setItem("event-email", email)
             window.location.href="/event"
             
         }else{

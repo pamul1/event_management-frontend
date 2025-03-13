@@ -55,7 +55,7 @@ export const TableEvent = () => {
                 </thead>
                 <tbody>
                     {
-                        movies.map((item) => (
+                        event.map((item) => (
                             <tr key={item.event_id}>
                                 <td>{item.title}</td>
                                 <td>{item.date}</td>

@@ -46,7 +46,7 @@ export const TableUser = () => {
                 </thead>
                 <tbody>
                     {
-                        actor.map((item) => (
+                        user.map((item) => (
                             <tr key={item.user_id}>
                                 <td>{item.email}</td>
                                 <td>{item.name}</td>

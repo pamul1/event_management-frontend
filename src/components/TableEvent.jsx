@@ -4,14 +4,22 @@ import { useEffect, useState } from 'react'
 export const TableEvent = () => {
 
     const baseUrl = import.meta.env.VITE_BASE_URL
-    const endPoint = "events"
+    const endPoint = "event"
     const [event, setEvent] = useState([])
 
     const getEvent = async () => {
         const email = localStorage.getItem("event-email")
         const token = localStorage.getItem("event-credential")
         const url = `${baseUrl}${endPoint}/${email}`
-        const result = await fetch(url)
+        const result = await fetch(url,
+            {
+                method: "GET",
+                headers: {
+                    'Content-Type': "application/json",
+                    'Authorization' : token
+                }
+            }
+        )
 
         if (result.ok) {
             const data = await result.json()
@@ -50,7 +58,7 @@ export const TableEvent = () => {
                             <th>Title</th>
                             <th>Date</th>
                             <th>Location</th>
-                            <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +68,6 @@ export const TableEvent = () => {
                                     <td>{item.title}</td>
                                     <td>{item.date}</td>
                                     <td>{item.location}</td>
-                                    <td>{item.email}</td>
                                     <td> <button className='btn btn-danger' onClick={() => {
                                         handleDelete(item.event_id)
                                     }} >Delete</button></td>

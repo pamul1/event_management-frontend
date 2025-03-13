@@ -26,7 +26,7 @@ export const FormAttendance = () => {
         event.preventDefault()
         const newUrl = `${baseUrl}${endPoint}`
 
-        const earning = {
+        const attendance = {
             event_id,
             name,
             date
@@ -45,7 +45,7 @@ export const FormAttendance = () => {
         if (result.ok) {
             const data = await result.json()
 
-            window.location = "/earningScreen"
+            window.location = "/attendanceScreen"
         }
             else {
                 const data = await result.json()

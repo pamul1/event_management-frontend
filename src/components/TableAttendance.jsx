@@ -7,7 +7,7 @@ export const TableAttendance = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL
     const endPoint = "attendance"
     const [attendance, setAttendance] = useState([])
-    const { event_id} = useParams()
+    const { id_event} = useParams()
 
     const getAttendance = async () => {
 

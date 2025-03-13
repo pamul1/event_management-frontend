@@ -9,7 +9,7 @@ export const FormEvent = () => {
     const [email, setEmail] = useState("")
 
     const baseUrl = import.meta.env.VITE_BASE_URL
-    const endPoint = "events"
+    const endPoint = "event"
 
     const titleHandler = (event) => {
         setTitle(event.target.value)
@@ -45,7 +45,7 @@ export const FormEvent = () => {
                 'Content-Type': "application/json",
                 'Authorization' : token
             },
-            body: JSON.stringify(movie)
+            body: JSON.stringify(event)
         })
 
         if (result.ok) {

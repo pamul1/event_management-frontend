@@ -1,15 +1,17 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const TableAttendance = () => {
 
     const baseUrl = import.meta.env.VITE_BASE_URL
     const endPoint = "attendance"
     const [attendance, setAttendance] = useState([])
+    const { event_id} = useParams()
 
     const getAttendance = async () => {
 
-        const url = `${baseUrl}${endPoint}`
+        const url = `${baseUrl}${endPoint}/${id_event}`
         const token = localStorage.getItem("event-credential");
         const result = await fetch(url, {
             method: "GET",
@@ -62,12 +64,11 @@ export const TableAttendance = () => {
                 <tbody>
                     {
                         attendance.map((item) => (
-                            <tr key={item.attendance_id}>
-                                <td>{item.event_id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.date}</td>
+                            <tr key={item.id}>
+                                <td>{item.attendee_name}</td>
+                                <td>{item.attendance_date}</td>
                                 <td> <button className='btn btn-danger' onClick={() => {
-                                    handleDelete(item.attendance_id)
+                                    handleDelete(item.id)
                                 }} >Delete</button></td>
                             </tr>
                         ))

@@ -45,6 +45,10 @@ export const TableEvent = () => {
         getEvent()
     }
 
+    const goToAttendance = (id) => {
+        window.location.href = `/attendance/${id}`
+    }
+
     useEffect(() => {
         getEvent()
     }, [])
@@ -69,8 +73,11 @@ export const TableEvent = () => {
                                     <td>{item.date}</td>
                                     <td>{item.location}</td>
                                     <td> <button className='btn btn-danger' onClick={() => {
-                                        handleDelete(item.event_id)
-                                    }} >Delete</button></td>
+                                        handleDelete(item.id)
+                                    }} >-</button></td>
+                                    <td> <button onClick={() => {
+                                        goToAttendance(item.id)
+                                    }} className='btn btn-danger'>+</button></td>
                                 </tr>
                             ))
                         }

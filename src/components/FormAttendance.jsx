@@ -1,18 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const FormAttendance = () => {
 
-    const [event_id, setEvent_id] = useState("")
+    const { id_event } = useParams()
+    const [event_id, setEvent_id] = useState(id_event)
     const [name, setName] = useState("")
     const [date, setDate] = useState("")
 
     const baseUrl = import.meta.env.VITE_BASE_URL
-    const endPoint = "attendances"
-
-    const event_idHandler = (event) => {
-        setEvent_id(event.target.value)
-    }
+    const endPoint = "attendance"
 
     const nameHandler = (event) => {
         setName(event.target.value)
@@ -39,41 +37,37 @@ export const FormAttendance = () => {
                 'Content-Type': "application/json",
                 'Authorization': token
             },
-            body: JSON.stringify(earning)
+            body: JSON.stringify(attendance)
         })
 
         if (result.ok) {
             const data = await result.json()
 
-            window.location = "/attendanceScreen"
+           // window.location = "/attendance/" + id_event
         }
-            else {
-                const data = await result.json()
-                console.log(data)
+        else {
+            const data = await result.json()
+            console.log(data)
 
         }
     }
 
-        return (
-            <>
-                <div className="card p-3 mb-5">
-                    <form onSubmit={submitHandler}>
+    return (
+        <>
+            <div className="card p-3 mb-5">
+                <form onSubmit={submitHandler}>
 
-                        <div className="mb-3">
-                            <label className="form-label">Id Event</label>
-                            <input className="form-control" type="number" onChange={event_idHandler} />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Name</label>
-                            <input className="form-control" type="text" onChange={nameHandler} />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Date</label>
-                            <input className="form-control" type="date" onChange={dateHandler} />
-                        </div>
-                        <button type='submit' className='btn btn-primary w-100' >Add</button>
-                    </form>
-                </div>
-            </>
-        )
-    }
+                    <div className="mb-3">
+                        <label className="form-label">Name</label>
+                        <input className="form-control" type="text" onChange={nameHandler} />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Date</label>
+                        <input className="form-control" type="date" onChange={dateHandler} />
+                    </div>
+                    <button type='submit' className='btn btn-primary w-100' >Add</button>
+                </form>
+            </div>
+        </>
+    )
+}

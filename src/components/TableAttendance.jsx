@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 export const TableAttendance = () => {
 
     const baseUrl = import.meta.env.VITE_BASE_URL
-    const endPoint = "attendances"
+    const endPoint = "attendance"
     const [attendance, setAttendance] = useState([])
 
     const getAttendance = async () => {

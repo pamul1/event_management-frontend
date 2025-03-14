@@ -31,7 +31,7 @@ export const FormEvent = () => {
         event.preventDefault()
         const newUrl = `${baseUrl}${endPoint}`
 
-        const movie = {
+        const event = {
             title,
             date,
             location,

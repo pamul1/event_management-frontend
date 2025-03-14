@@ -75,9 +75,7 @@ export const TableEvent = () => {
                                     <td> <button className='btn btn-danger' onClick={() => {
                                         handleDelete(item.id)
                                     }} >-</button></td>
-                                    <td> <button onClick={() => {
-                                        goToAttendance(item.id)
-                                    }} className='btn btn-secondary'>+</button></td>
+                                    
                                 </tr>
                             ))
                         }

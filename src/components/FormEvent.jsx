@@ -39,6 +39,7 @@ export const FormEvent = () => {
         }
 
         const token = localStorage.getItem("event-credential")
+        const email = localStorage.getItem("event1")
         const result = await fetch(newUrl, {
             method: "POST",
             headers: {
@@ -76,10 +77,7 @@ export const FormEvent = () => {
                         <label className="form-label">Loacation</label>
                         <input className="form-control" type="text" onChange={locationHandler} />
                     </div>
-                    <div className="mb-3">
-                        <label className="form-label">Email</label>
-                        <input className="form-control" type="text" onChange={emailHandler} />
-                    </div>
+                    
                     <button type='submit' className='btn btn-primary w-100' >Add</button>
                 </form>
             </div>

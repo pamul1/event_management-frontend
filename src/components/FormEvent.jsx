@@ -6,7 +6,6 @@ export const FormEvent = () => {
     const [title, setTitle] = useState("")
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
-    const [email, setEmail] = useState("")
 
     const baseUrl = import.meta.env.VITE_BASE_URL
     const endPoint = "event"
@@ -23,14 +22,11 @@ export const FormEvent = () => {
         setLocation(event.target.value)
     }
 
-    const emailHandler = (event) => {
-        setEmail(event.target.value)
-    }
-
     const submitHandler = async (event) => {
         event.preventDefault()
         const newUrl = `${baseUrl}${endPoint}`
 
+        const email = localStorage.getItem("event-email")
         const event1 = {
             title,
             date,
@@ -39,12 +35,11 @@ export const FormEvent = () => {
         }
 
         const token = localStorage.getItem("event-credential")
-        const email = localStorage.getItem("event1")
         const result = await fetch(newUrl, {
             method: "POST",
             headers: {
                 'Content-Type': "application/json",
-                'Authorization' : token
+                'Authorization': token
             },
             body: JSON.stringify(event1)
         })
@@ -77,7 +72,7 @@ export const FormEvent = () => {
                         <label className="form-label">Loacation</label>
                         <input className="form-control" type="text" onChange={locationHandler} />
                     </div>
-                    
+
                     <button type='submit' className='btn btn-primary w-100' >Add</button>
                 </form>
             </div>

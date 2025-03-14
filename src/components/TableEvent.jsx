@@ -77,7 +77,7 @@ export const TableEvent = () => {
                                     }} >-</button></td>
                                     <td> <button onClick={() => {
                                         goToAttendance(item.id)
-                                    }} className='btn btn-danger'>+</button></td>
+                                    }} className='btn btn-secondary'>+</button></td>
                                 </tr>
                             ))
                         }

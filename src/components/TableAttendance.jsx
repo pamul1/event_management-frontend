@@ -7,7 +7,7 @@ export const TableAttendance = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL
     const endPoint = "attendance"
     const [attendance, setAttendance] = useState([])
-    const { id_event} = useParams()
+    const { id_event } = useParams()
 
     const getAttendance = async () => {
 
@@ -24,13 +24,13 @@ export const TableAttendance = () => {
         setAttendance(data)
     }
 
-  
+
     const handleDelete = async (id) => {
         const url = `${baseUrl}${endPoint}/${id}`
         const token = localStorage.getItem("event-credential")
         const result = await fetch(url, {
             method: "DELETE",
-            headers:{
+            headers: {
                 'Authorization': token
             }
         })
@@ -42,8 +42,6 @@ export const TableAttendance = () => {
             console.log(data)
             console.log("Something went wrong")
         }
-
-
     }
 
     useEffect(() => {

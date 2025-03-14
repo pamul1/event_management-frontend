@@ -31,7 +31,7 @@ export const FormEvent = () => {
         event.preventDefault()
         const newUrl = `${baseUrl}${endPoint}`
 
-        const event = {
+        const event1 = {
             title,
             date,
             location,
@@ -45,7 +45,7 @@ export const FormEvent = () => {
                 'Content-Type': "application/json",
                 'Authorization' : token
             },
-            body: JSON.stringify(event)
+            body: JSON.stringify(event1)
         })
 
         if (result.ok) {

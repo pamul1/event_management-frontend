@@ -27,7 +27,7 @@ export const App = () => {
 
       if (result.ok) {
         setIsLogIn(true)
-        window.location.href = '/event'
+       // window.location.href = '/event'
       }else {
         setIsLogIn(false)
       }
@@ -44,7 +44,7 @@ export const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<LogIn />}/>
+          <Route path='/' element={<LogIn isLogIn  />}/>
           {isLogIn ?<Route path='/register' element={ <Register/>}/>: ""}
           <Route path='*' element={<NotFound />} />
           {isLogIn ?<Route path='/attendance/:id_event' element={ <AttendanceScreen/>}/>: ""}

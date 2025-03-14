@@ -46,7 +46,7 @@ console.log(newUrl)
             const data = await result.json()
 
             console.log(data)
-           // window.location = "/attendance/" + id_event
+           window.location = "/attendance/" + id_event
         }
         else {
             const data = await result.json()

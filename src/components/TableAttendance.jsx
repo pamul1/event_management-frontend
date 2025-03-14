@@ -56,7 +56,6 @@ export const TableAttendance = () => {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>Event_id</th>
                         <th>Name</th>
                         <th>Date</th>
                         <th>Delete</th>

@@ -10,7 +10,6 @@ export const Menu = () => {
 
     return (
         <>
-
             <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/dashboard">Event Management</a>
@@ -37,7 +36,6 @@ export const Menu = () => {
                     </div>
                 </div>
             </nav>
-
         </>
     )
 }

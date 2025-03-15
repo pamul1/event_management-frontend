@@ -1,9 +1,9 @@
 import React from 'react'
 import { LogInForm } from '../components/FormLogIn'
 
-export const LogIn = ({isLogIn}) => {
+export const LogIn = ({loginValidation}) => {
   
-  if(isLogIn){
+  if(loginValidation){
     window.location.href = "/event"
   }
   

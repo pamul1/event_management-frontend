@@ -4,7 +4,8 @@ export const Menu = () => {
     const logOut = () => {
 
         window.localStorage.removeItem('event-credential')
-        window.location.href="/"
+        window.localStorage.removeItem('event-email')
+        window.location.href = "/"
 
     }
 
@@ -17,18 +18,11 @@ export const Menu = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarColor01">
-                        <ul className="navbar-nav me-auto">
 
-                            <li className="nav-item">
-                                <a className="nav-link" href="/user">User</a>
-                            </li>
+                        <ul className="navbar-nav me-auto">
                             <li className="nav-item">
                                 <a className="nav-link" href="/event">Event</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/attendance">Attendance</a>
-                            </li>
-
                         </ul>
 
                         <button onClick={logOut} className="btn btn-danger my-2 my-sm-0" type="button">Log Out</button>

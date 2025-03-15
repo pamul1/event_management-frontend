@@ -5,6 +5,7 @@ import { NotFound } from './components/NotFound'
 import { Register } from './screenComponents/Register'
 import { AttendanceScreen } from './screenComponents/AttendanceScreen'
 import { EventScreen } from './screenComponents/EventScreen' 
+import { Menu } from './components/Menu'
 
 
 export const App = () => {
@@ -27,7 +28,6 @@ export const App = () => {
 
       if (result.ok) {
         setIsLogIn(true)
-       // window.location.href = '/event'
       }else {
         setIsLogIn(false)
       }
@@ -43,6 +43,7 @@ export const App = () => {
   return (
     <>
       <BrowserRouter>
+      {isLogIn ?<Menu/>: ""}
         <Routes>
           <Route path='/' element={<LogIn isLogIn  />}/>
           {isLogIn ?<Route path='/register' element={ <Register/>}/>: ""}

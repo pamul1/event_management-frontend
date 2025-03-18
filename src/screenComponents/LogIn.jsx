@@ -2,7 +2,7 @@ import React from 'react'
 import { LogInForm } from '../components/FormLogIn'
 import { useNavigate } from 'react-router-dom'
 
-export const LogIn = ({loginValidation, changeLogInState}) => {
+export const LogIn = ({loginValidation}) => {
   
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ export const LogIn = ({loginValidation, changeLogInState}) => {
   return (
     
     <>
-        <LogInForm changeLogInState={changeLogInState}/>
+        <LogInForm />
     </>
   )
 }

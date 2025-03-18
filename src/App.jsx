@@ -47,7 +47,7 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<LogIn loginValidation={isLogIn}  />}/>
           {!isLogIn ?<Route path='/register' element={ <Register/>}/>: ""}
-          <Route path='*' element={<NotFound />} />
+          {isLogIn ?<Route path='*' element={<NotFound />} />: ""}
           {isLogIn ?<Route path='/attendance/:id_event' element={ <AttendanceScreen/>}/>: ""}
           {isLogIn ?<Route path='/event' element={ <EventScreen/>}/>: ""}
 

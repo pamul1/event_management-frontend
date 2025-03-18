@@ -32,16 +32,15 @@ export const TableEvent = () => {
 
     }
 
-    const token = localStorage.getItem("event-credential")
     const handleDelete = async (id) => {
         const url = `${baseUrl}${endPoint}/${id}`
+        const token = localStorage.getItem("event-credential")
         const result = await fetch(url, {
             method: "DELETE",
             headers: {
                 'Authorization': token
             }
         })
-
         getEvent()
     }
 

@@ -41,7 +41,7 @@ export const LogInForm = () => {
             const email = formData.email
             window.localStorage.setItem("event-credential", token)
             window.localStorage.setItem("event-email", email)
-            window.location.href="/event"
+            window.location.href="#/event"
             
         }else{
             console.log("Invalid Credential")

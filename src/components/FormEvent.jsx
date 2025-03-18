@@ -47,7 +47,7 @@ export const FormEvent = () => {
         if (result.ok) {
             const data = await result.json()
 
-            window.location = "/event"
+            window.location = "#/event"
         }
         else {
             const data = await result.json()

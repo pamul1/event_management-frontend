@@ -29,8 +29,8 @@ export const FormAttendance = () => {
             name,
             date
         }
-console.log(attendance)
-console.log(newUrl)
+        console.log(attendance)
+        console.log(newUrl)
 
         const token = localStorage.getItem("event-credential")
         const result = await fetch(newUrl, {
@@ -41,12 +41,10 @@ console.log(newUrl)
             },
             body: JSON.stringify(attendance)
         })
- console.log(result)
+        console.log(result)
         if (result.ok) {
             const data = await result.json()
-
-            console.log(data)
-           window.location = "/attendance/" + id_event
+            window.location.reload();
         }
         else {
             const data = await result.json()

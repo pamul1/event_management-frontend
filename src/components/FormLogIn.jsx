@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-export const LogInForm = () => {
+export const LogInForm = ({changeLogInState}) => {
     const [formData, setFormData] = useState({
         password: "", 
         email : ""
@@ -45,7 +45,8 @@ export const LogInForm = () => {
             const email = formData.email
             window.localStorage.setItem("event-credential", token)
             window.localStorage.setItem("event-email", email)
-            window.location.href = "#/event"
+            changeLogInState(true)
+            navigate("/event")
             
         }else{
             console.log("Invalid Credential")

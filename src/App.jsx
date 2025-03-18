@@ -43,7 +43,7 @@ export const App = () => {
       <HashRouter>
       {isLogIn ?<Menu/>: ""}
         <Routes>
-          <Route path='/' element={<LogIn loginValidation={isLogIn}  />}/>
+          <Route path='/' element={<LogIn loginValidation={isLogIn} changeLogInState={setToken}  />}/>
           {!isLogIn ?<Route path='/register' element={ <Register/>}/>: ""}
           {isLogIn ?<Route path='*' element={<NotFound />} />: ""}
           {isLogIn ?<Route path='/attendance/:id_event' element={ <AttendanceScreen/>}/>: ""}

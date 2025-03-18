@@ -46,7 +46,7 @@ export const FormEvent = () => {
 
         if (result.ok) {
             const data = await result.json()
-            window.location.href = "#/event"
+            window.location.reload();
         }
         else {
             const data = await result.json()

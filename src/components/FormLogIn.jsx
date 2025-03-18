@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export const LogInForm = () => {
     const [formData, setFormData] = useState({
         password: "", 
         email : ""
     })
+
+    const navigate = useNavigate()
 
     const baseUrl = import.meta.env.VITE_BASE_URL
 
@@ -17,7 +20,8 @@ export const LogInForm = () => {
 
     const register=()=>{
 
-        window.location.href="#/register"
+        navigate("/register")
+
     }
 
     const submitHandler = async ()=>{
@@ -41,7 +45,7 @@ export const LogInForm = () => {
             const email = formData.email
             window.localStorage.setItem("event-credential", token)
             window.localStorage.setItem("event-email", email)
-            window.location.href="#/event"
+            navigate("/event")
             
         }else{
             console.log("Invalid Credential")

@@ -1,11 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const TableEvent = () => {
 
     const baseUrl = import.meta.env.VITE_BASE_URL
     const endPoint = "event"
     const [event, setEvent] = useState([])
+
+    const navigate = useNavigate()
 
     const getEvent = async () => {
         const email = localStorage.getItem("event-email")
@@ -45,7 +48,7 @@ export const TableEvent = () => {
     }
 
     const goToAttendance = (id) => {
-        window.location.href = `/#/attendance/${id}`
+        navigate(`/attendance/${id}`)
     }
 
     useEffect(() => {

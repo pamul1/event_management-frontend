@@ -1,10 +1,13 @@
 import React from 'react'
 import { LogInForm } from '../components/FormLogIn'
+import { useNavigate } from 'react-router-dom'
 
 export const LogIn = ({loginValidation}) => {
   
+  const navigate = useNavigate()
+
   if(loginValidation){
-    window.location.href = "#/event"
+    navigate("/event")
   }
   
   return (

@@ -21,7 +21,7 @@ export const Menu = () => {
 
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="/#/event">Event</a>
+                                <a className="nav-link" href="/event">Event</a>
                             </li>
                         </ul>
 

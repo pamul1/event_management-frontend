@@ -45,7 +45,7 @@ export const TableEvent = () => {
     }
 
     const goToAttendance = (id) => {
-        window.location.href = `/attendance/${id}`
+        window.location.href = `/#/attendance/${id}`
     }
 
     useEffect(() => {

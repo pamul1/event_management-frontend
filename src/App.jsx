@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { LogIn } from './screenComponents/LogIn'
 import { NotFound } from './components/NotFound'
 import { Register } from './screenComponents/Register'
@@ -11,8 +11,8 @@ import { Menu } from './components/Menu'
 export const App = () => {
 
   const [isLogIn , setIsLogIn] = useState(false)
+  const [token, setToken] = useState(window.localStorage.getItem('event-credential'))
 
-  let token = ""
   const baseUrl = import.meta.env.VITE_BASE_URL
   const endPoint = "validateSesion"
 
@@ -35,14 +35,12 @@ export const App = () => {
   }
 
   useEffect(()=>{
-
-    token = window.localStorage.getItem('event-credential')
     validateToken()
-
   }, [])
+  
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
       {isLogIn ?<Menu/>: ""}
         <Routes>
           <Route path='/' element={<LogIn loginValidation={isLogIn}  />}/>
@@ -52,7 +50,7 @@ export const App = () => {
           {isLogIn ?<Route path='/event' element={ <EventScreen/>}/>: ""}
 
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

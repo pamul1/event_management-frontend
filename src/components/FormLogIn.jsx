@@ -17,7 +17,7 @@ export const LogInForm = () => {
 
     const register=()=>{
 
-        window.location.href="/register"
+        window.location.href="#/register"
     }
 
     const submitHandler = async ()=>{
